@@ -1,0 +1,23 @@
+{
+  "files.exclude": {
+    ".vscode": true,
+    "**/.cache": true,
+    "**/*.{a,so,dylib,exe,dSYM}": true,
+    "**/compile_commands.json": true,
+  },
+  "files.associations": {
+    "*.h": "c",
+  },
+  "clangd.detectExtensionConflicts": false,
+  "C_Cpp.autocomplete": "disabled",
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",
+  "cSpell.words": [
+    "minirt",
+    "brdf",
+  ],
+  "[c]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+  },
+}
