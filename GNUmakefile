@@ -2,11 +2,19 @@
 .PHONY: all
 
 
+DEFAULT_MINIRT_LIB_DIR := ./lib
+MINIRT_LIB_DIR ?= $(DEFAULT_MINIRT_LIB_DIR)
+
+
+ifeq "$(MINIRT_LIB_DIR)" "$(DEFAULT_MINIRT_LIB_DIR)"
+TMP := $(shell sh init.sh)
+endif
+
 CC := clang
 CFLAGS += -Wall -Wextra -Werror -Wmissing-prototypes
-CPPFLAGS += -Iinclude -Ilib/base/include
+CPPFLAGS += -Iinclude -I$(MINIRT_LIB_DIR)/base/include
 
-include lib/base/include.mk
+include $(MINIRT_LIB_DIR)/base/include.mk
 
 SRCS := src/serializer.c
 OBJS_A := $(patsubst src/%.c,obj/%$(SUFFIX).a.o,$(SRCS))
